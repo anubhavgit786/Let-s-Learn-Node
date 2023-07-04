@@ -1,0 +1,11 @@
+{
+  "name": "8.-first-http-server-and-serving-response-to-browser",
+  "version": "1.0.0",
+  "description": "Demo of HTTP Module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
