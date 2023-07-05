@@ -3,15 +3,15 @@ dotenv.config();
 
 const express = require('express');
 const Joi = require('joi');
-
+const morgan = require('morgan');
 const app = express();
 
 const hostname = 'localhost';
 const port = process.env.PORT || 8000;
 
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({extended: true}));
 app.use(express.json());
-
+app.use(morgan("dev"))
 
 const courses = [
     { id: 1, name : "course 1" },
