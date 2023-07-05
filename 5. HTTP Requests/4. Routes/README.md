@@ -1,21 +1,21 @@
-
 ~~~js
 const dotenv = require('dotenv');
 dotenv.config();
 
 const express = require('express');
 const Joi = require('joi');
-const morgan = require('morgan'); 
+const morgan = require('morgan');
+const helmet = require('helmet');
 
 const app = express();
 
 const hostname = 'localhost';
 const port = process.env.PORT || 8000;
 
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({extended: true}));
 app.use(express.json());
-app.use(morgan("dev"));
-
+app.use(helmet());
+app.use(morgan("dev"))
 
 const courses = [
     { id: 1, name : "course 1" },
@@ -176,7 +176,42 @@ Express ```app.post()``` function lets you define a route handler for ```POST```
 
 Express ```app.delete()``` function lets you define a route handler for ```DELETE``` requests to a given URL. It registers a route handler that Express will call when it receives an ```HTTP DELETE``` request.
 
+# **Middleware**
 
+![Middleware](./assets/images/middleware.drawio.png)
+
+When an Express server receives an HTTP request, it executes a list of middleware functions. The middleware functions are responsible for handling the request and crafting a response.
+
+You will usually see middleware defined as a function with 3 parameters: req, res, and next. The biggest exception to this rule is error handling middleware. To add a middleware function to your Express app, you call app.use().
+
+~~~js
+app.use((req, res, next) => {
+  req; // The request
+  res; // The response
+  next; // A function that you must call to trigger the next middleware
+});
+~~~
+
+Under the hood, when you call app.use(), Express adds your function to its internal middleware stack. Express executes middleware in the order they're added, so if you call app.use(fn1); app.use(fn2);, Express will execute fn1 before fn2.
+
+## Error Handling Middleware 
+
+A middleware function that takes 4 arguments is defined as error handling middleware.
+
+~~~js
+app.use((err, req, res, next) => {
+  err; // The error
+  req; // The request
+  res; // The response
+  next; // A function that you must call to trigger the next middleware
+});
+~~~
+
+## Third Party Middleware: helmet
+
+Helmet helps secure Express apps by setting HTTP response headers.
+
+[Read more](https://www.npmjs.com/package/helmet)
 
 
 
