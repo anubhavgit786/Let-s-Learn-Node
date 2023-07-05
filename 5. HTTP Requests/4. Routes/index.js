@@ -9,7 +9,7 @@ const app = express();
 const hostname = 'localhost';
 const port = process.env.PORT || 8000;
 
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
 
