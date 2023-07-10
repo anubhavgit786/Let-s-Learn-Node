@@ -103,7 +103,7 @@ app.delete('/api/courses/:id', (req, res)=>
         return res.status(404).send('Course not found');
     }
 
-    const index = course.indexOf(course);
+    const index = courses.indexOf(course);
     courses.slice(index, 1);
     res.send(course);
 });
