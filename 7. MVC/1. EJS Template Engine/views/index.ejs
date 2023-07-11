@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= locals.title %></title>
+    <link rel="icon" href="/images/css.png" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/index.css" />
+  </head>
+  <body>
+    <header>
+      <h1>
+        <i class="far fa-address-book"></i>
+        My Contacts List
+      </h1>
+    </header>
+    <div>
+      <ul>
+        <% for(let i = 0; i < locals.contacts.length; i++) { %>
+        <li>
+          <span class="number"> <%= i+1 %> </span>
+          <span class="name"> <%= locals.contacts[i].name %> </span>
+          <span class="user"><i class="fas fa-user"></i></span>
+          <span class="phone"> <%= locals.contacts[i].phone %> </span>
+          <span class="delete-btn">
+            <a href="/delete-contact/?id=<%= locals.contacts[i].id %>">
+              <i class="fas fa-trash-alt"></i>
+            </a>
+          </span>
+        </li>
+        <% } %>
+      </ul>
+    </div>
+    <form action="/create-contact" method="POST" class="form-inline">
+      <div class="form-group mx-sm-3 mb-2">
+        <label for="inputName" class="sr-only">Enter Name</label>
+        <input
+          type="text"
+          name="name"
+          class="form-control"
+          id="inputName"
+          placeholder="Enter Name"
+          required
+        />
+      </div>
+      <div class="form-group mx-sm-3 mb-2">
+        <label for="inputNumber" class="sr-only">Enter Number</label>
+        <input
+          type="text"
+          name="phone"
+          class="form-control"
+          id="inputNumber"
+          placeholder="Enter Number"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-primary mb-2">Add Contact</button>
+    </form>
+    <script type="text/javascript" src="/js/index.js"></script>
+  </body>
+</html>
