@@ -5,7 +5,7 @@ In EJS (Embedded JavaScript), partials allow you to break down your views into s
 To use partials in EJS, follow these steps:
 
 **Step 1: Create a partial file**
-Create a separate EJS file for your partial component. For example, let's create a partial file named header.ejs in your views directory:
+*    Create a separate EJS file for your partial component. For example, let's create a partial file named ```header.ejs``` in your views directory:
 
 ~~~html
 <!-- header.ejs -->
@@ -16,7 +16,7 @@ Create a separate EJS file for your partial component. For example, let's create
 ~~~
 
 **Step 2: Include the partial in a view**
-To include the partial in a view, use the <%- include %> directive in your main view file. For example, let's include the header.ejs partial in a view file named index.ejs:
+*    To include the partial in a view, use the ```<%- include %>``` directive in your main view file. For example, let's include the ````header.ejs``` partial in a view file named index.ejs:
 
 ~~~HTML
 <!-- index.ejs -->
@@ -36,7 +36,7 @@ To include the partial in a view, use the <%- include %> directive in your main 
 In this example, the ```<%- include('header') %>``` directive is used to include the header.ejs partial in the index.ejs view file. The content of the ```header.ejs``` partial will be rendered in place at the location of the include directive.
 
 **Step 3: Render the view**
-Render the view using your preferred method. For instance, if you are using Express framework, you can render the view using ```res.render()```:
+*    Render the view using your preferred method. For instance, if you are using Express framework, you can render the view using ```res.render()```:
 
 ~~~js
 app.get('/', function(req, res) {
@@ -44,11 +44,11 @@ app.get('/', function(req, res) {
 });
 ~~~
 
-When the index.ejs view is rendered, the header.ejs partial will be included and rendered within the main view.
+When the ```index.ejs``` view is rendered, the ```header.ejs``` partial will be included and rendered within the main view.
 
 You can create multiple partials and include them in different views as needed. The use of partials allows you to create modular components for headers, footers, sidebars, or any other reusable sections of your views.
 
-Note: Make sure that the path provided in the include() directive matches the actual location and name of your partial file. Adjust the file paths and names as per your project structure.
+Note: Make sure that the path provided in the ```include()``` directive matches the actual location and name of your partial file. Adjust the file paths and names as per your project structure.
 
 By using partials, you can easily maintain and update common sections of your views across your application without duplicating code.
 
