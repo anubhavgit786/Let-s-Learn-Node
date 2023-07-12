@@ -35,9 +35,9 @@ if(app.get('env') === 'development')
 
 
 const contacts = [
-    { id: Date.now(), name: 'Iron Man', phone: '+91-90418-56978' },
-    { id: Date.now(), name: 'Super Man', phone: '+91-90418-54578' },
-    { id: Date.now(), name: 'Hulk', phone: '+91-90418-58592' }
+    { id: Date.now(), name: 'Iron Man', phone: '9041856978' },
+    { id: Date.now(), name: 'Super Man', phone: '9041854578' },
+    { id: Date.now(), name: 'Hulk', phone: '9041858592' }
 ]
 
 // to get all the contacts
